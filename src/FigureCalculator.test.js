@@ -43,7 +43,7 @@ describe('A FigureCalculator', () => {
       //Assert
       expect(result).toEqual(60);
       expect(spyAdd).toHaveBeenCalledWith(length, width);
-      expect(spyMultiply).toHaveBeenCalledWith(2, 30); // 2 * (length + width)
+      expect(spyMultiply).toHaveBeenCalledWith(2, MathBasic.add(length, width)); // 2 * (length + width)
     });
   });
 
@@ -108,7 +108,7 @@ describe('A FigureCalculator', () => {
       //Assert
       expect(result).toEqual(50);
       expect(spyAdd).toHaveBeenCalledWith(sideA, sideB);
-      expect(spyAdd).toHaveBeenCalledWith(40, base); // (sideA + sideB) + base
+      expect(spyAdd).toHaveBeenCalledWith(MathBasic.add(sideA, sideB), base); // (sideA + sideB) + base
     });
   });
 
@@ -141,7 +141,7 @@ describe('A FigureCalculator', () => {
       //Assert
       expect(result).toEqual(75);
       expect(spyMultiply).toHaveBeenCalledWith(base, height);
-      expect(spyDivide).toHaveBeenCalledWith(150, 2); // (base * height) / 2
+      expect(spyDivide).toHaveBeenCalledWith(MathBasic.multiply(base, height), 2); // (base * height) / 2
     });
   });
 });
